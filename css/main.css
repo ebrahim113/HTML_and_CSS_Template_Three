@@ -1,0 +1,214 @@
+/* Start global variables */
+:root {
+	--main-color: #2196f3;
+	--main-transition-duration: .3s;
+}
+/* End global variables */
+
+/* Start global rules */
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: 'Cairo', sans-serif;
+	background-color: #ddd;
+}
+
+a {
+	text-decoration: none;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.container {
+	margin: 0 auto;
+	padding: 0 15px;
+}
+
+/* Container media queries */
+
+/* Small */
+@media (max-width: 768px) {
+	.container {
+		width: 750px;
+	}
+}
+
+/* Medium */
+@media (max-width: 992px) {
+	.container {
+		width: 970px;
+	}
+}
+
+/* Large */
+@media (min-width: 1200px) {
+	.container {
+		width: 1170px;
+	}
+}
+/* End global rules */
+
+/* Start header section */
+.header {
+	background-color: white;
+}
+
+.header .container {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	align-items: center;
+	align-content: stretch;
+	position: relative;
+}
+
+.header .container .logo {
+	color: var(--main-color);
+	font-size: 26px;
+	font-weight: bold;
+	height: 72px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	flex-flow: row nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: stretch;
+}
+
+.header .container .main-nav {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	flex-flow: row nowrap;
+	justify-content: flex-start;
+	align-items: stretch;
+	align-content: stretch;
+}
+
+.header .container .main-nav>li>a {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	flex-flow: row nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: stretch;
+	height: 72px;
+	font-size: 18px;
+	color: black;
+	padding: 0 30px;
+	position: relative;
+}
+
+.header .container .main-nav>li>a:hover {
+	color: var(--main-color);
+	background-color: #fafafa;
+}
+
+.header .container .main-nav>li>a::before {
+	transition-property: width;
+	transition-duration: var(--main-transition-duration);
+	transition: width var(--main-transition-duration);
+	content: "";
+	width: 0;
+	height: 4px;
+	background-color: var(--main-color);
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.header .container .main-nav>li>a:hover::before {
+	width: 100%
+}
+
+.header .container .main-nav>li:last-child:hover a+.other-links {
+	z-index: 100;
+	opacity: 1;
+	top: calc(100% + 1px);
+}
+
+.header .container .main-nav>li:last-child .other-links {
+	width: 100%;
+	background-color: white; 
+	position: absolute;
+	top: calc(100% + 50px);
+	left: 0;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	flex-flow: row nowrap;
+	justify-content: flex-start;
+	align-items: stretch;
+	align-content: stretch;
+	border-bottom: 3px solid var(--main-color);
+	padding: 30px;
+	gap: 40px;
+	z-index: -1;
+	opacity: 0;
+	transition-property: top, opacity;
+	transition-duration: var(--main-transition-duration);
+	transition: top var(--main-transition-duration), opacity var(--main-transition-duration);
+}
+
+.header .container .main-nav li .other-links .image img {
+	max-width: 100%;
+}
+
+.header .container .main-nav li .other-links .links {
+	min-width: 250px;
+	flex-grow: 1;
+	flex-shrink: 0;
+	flex-basis: 0%;
+	flex: 1;
+}
+
+.header .container .main-nav li .other-links .links li {
+	position: relative;
+}
+
+.header .container .main-nav li .other-links .links li::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	width: 0;
+	height: 100%;
+	background-color: #fafafa;
+	transition-property: width;
+	transition-duration: var(--main-transition-duration);
+	transition: width var(--main-transition-duration);
+}
+
+.header .container .main-nav li .other-links .links li:hover::before {
+	width: 100%;
+}
+
+.header .container .main-nav li .other-links .links li:not(:last-child) {
+	border-bottom: 1px solid #e9e6e9;
+}
+
+.header .container .main-nav li .other-links .links li a {
+	color: var(--main-color);
+	display: block;
+	padding: 15px;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.header .container .main-nav li .other-links .links li a i {
+	margin-right: 10px;
+}
+/* End header section */
