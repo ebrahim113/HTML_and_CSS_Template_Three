@@ -14,7 +14,6 @@
 
 body {
 	font-family: 'Cairo', sans-serif;
-	background-color: #ddd;
 }
 
 a {
@@ -212,3 +211,85 @@ ul {
 	margin-right: 10px;
 }
 /* End header section */
+
+/* Start landing section */
+.landing {
+	position: relative;
+}
+
+.landing::before {
+	content: "";
+	position: absolute;
+	top: -40px;
+	left: 0;
+	z-index: -1;
+	width: 100%;
+	height: 100%;
+	background-color: #ececec;
+	transform: skewY(-6deg);
+	transform-origin: top left;
+}
+
+.landing .container {
+	height: calc(100vh - 72px);
+	padding-bottom: 120px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	flex-flow: row wrap;
+	justify-content: flex-start;
+	align-items: center;
+	align-content: stretch;
+}
+
+.landing .container .text {
+	flex-grow: 1;
+	flex-shrink: 1;
+	flex-basis: 0%;
+	flex: 1;
+}
+
+.landing .container .text h1 {
+	font-size: 40px;
+	letter-spacing: -2px;
+	margin: 0;
+}
+
+.landing .container .text p {
+	color: #666;
+	font-size: 23px;
+	line-height: 1.7;
+	margin: 5px 0 0;
+	max-width: 500px;
+}
+
+.landing .container .image {
+	flex-basis: 50%;
+}
+
+.landing .container .image img {
+	width: 600px;
+	position: relative;
+	top: 0;
+	animation-name: up-and-down;
+	animation-duration: 5s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	animation: up-and-down 5s linear infinite;
+}
+
+@keyframes up-and-down {
+	50% {
+		top: -50px;
+	}
+}
+
+.landing .container .go-down {
+	
+}
+
+.landing .container .go-down i {
+	
+	
+}
+/* End landing section */
