@@ -47,6 +47,7 @@ ul {
 	transition-property: color, border;
 	transition-delay: .5s;
 	transition: color .5s, border .5s;
+	transition: color 0s .5s, border 0s .5s;
 }
 
 .main-title:hover {
@@ -87,6 +88,7 @@ ul {
 	animation-fill-mode: forwards;
 	animation: right-move .5s linear forwards;
 }
+
 /* Container media queries */
 
 /* Small */
