@@ -1,9 +1,10 @@
 /* Start global variables */
 :root {
 	--main-color: #2196f3;
-	--main-transition-duration: .3s;
-	--main-top-and-bottom-padding: 100px;
+	--transition-duration: .3s;
+	--section-padding: 100px;
 	--section-background: #ececec;
+	--main-gap: 40px;
 }
 /* End global variables */
 
@@ -214,8 +215,8 @@ ul {
 
 .header .container .main-nav>li>a::before {
 	transition-property: width;
-	transition-duration: var(--main-transition-duration);
-	transition: width var(--main-transition-duration);
+	transition-duration: var(--transition-duration);
+	transition: width var(--transition-duration);
 	content: "";
 	width: 0;
 	height: 4px;
@@ -250,12 +251,12 @@ ul {
 	align-content: stretch;
 	border-bottom: 3px solid var(--main-color);
 	padding: 30px;
-	gap: 40px;
+	gap: var(--main-gap);
 	z-index: -1;
 	opacity: 0;
 	transition-property: top, opacity;
-	transition-duration: var(--main-transition-duration);
-	transition: top var(--main-transition-duration), opacity var(--main-transition-duration);
+	transition-duration: var(--transition-duration);
+	transition: top var(--transition-duration), opacity var(--transition-duration);
 }
 
 @media (max-width: 767px) {
@@ -299,8 +300,8 @@ ul {
 	height: 100%;
 	background-color: #fafafa;
 	transition-property: width;
-	transition-duration: var(--main-transition-duration);
-	transition: width var(--main-transition-duration);
+	transition-duration: var(--transition-duration);
+	transition: width var(--transition-duration);
 }
 
 .header .container .main-nav li .other-links .links li:hover::before {
@@ -445,13 +446,13 @@ ul {
 
 /* Start articles section */
 .articles {
-	padding: var(--main-top-and-bottom-padding) 0;
+	padding: var(--section-padding) 0;
 }
 
 .articles .container {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-	gap: 40px;
+	gap: var(--main-gap);
 }
 
 .articles .container .box {
@@ -460,8 +461,8 @@ ul {
 	overflow: hidden;
 	box-shadow: 0 2px 15px rgb(0 0 0 / 10%);
 	transition-property: transform, box-shadow;
-	transition-duration: var(--main-transition-duration);
-	transition: transform var(--main-transition-duration), box-shadow var(--main-transition-duration);
+	transition-duration: var(--transition-duration);
+	transition: transform var(--transition-duration), box-shadow var(--transition-duration);
 }
 
 .articles .container .box:hover {
@@ -507,14 +508,14 @@ ul {
 
 /* Start gallery section */
 .gallery {
-	padding: var(--main-top-and-bottom-padding) 0;
+	padding: var(--section-padding) 0;
 	background-color: var(--section-background);
 }
 
 .gallery .container {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-	gap: 40px;
+	gap: var(--main-gap);
 }
 
 .gallery .container .box {
@@ -551,13 +552,154 @@ ul {
 .gallery .container .box .image img {
 	max-width: 100%;
 	transition-property: transform, animation;
-	transition-duration: var(--main-transition-duration);
+	transition-duration: var(--transition-duration);
 }
 
 .gallery .container .box .image:hover img {
 	transform: rotate(5deg) scale(1.1);
 }
 /* End gallery section */
+
+/* Start features section */
+.features {
+	padding: var(--section-padding) 0;
+}
+
+.features .container {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: var(--main-gap);
+}
+
+.features .container .box.quality .image::before {
+	background-color: rgb(244 64 54 / 60%);
+}
+
+.features .container .box.quality h2::after {
+	background-color: #f44036;
+}
+
+.features .container .box.time .image::before {
+	background-color: rgb(0 150 136 / 60%);
+}
+
+.features .container .box.time h2::after {
+	background-color: #009688;
+}
+
+.features .container .box.passion .image::before {
+	background-color: rgb(3 169 244 / 60%);
+}
+
+.features .container .box.passion h2::after {
+	background-color: #03a9f4;
+}
+
+.features .container .box {
+	text-align: center;
+	border: 1px solid #ccc;
+}
+
+.features .container .box .image::before {
+	content: "";
+	position: absolute;
+	top: -1px;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.features .container .box .image {
+	position: relative;
+	overflow: hidden;
+}
+
+.features .container .box .image::after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	border-style: solid;
+	border-width: 0px 0px 170px 500px;
+	border-color: transparent transparent white transparent;
+	transition-property: border-width;
+	transition-duration: var(--transition-duration);
+	transition: border-width var(--transition-duration);
+}
+
+.features .container .box:hover .image::after {
+	border-width: 170px 500px 170px 0px;
+}
+
+.features .container .box .image img {
+	max-width: 100%;
+}
+
+.features .container .box h2 {
+	position: relative;
+	font-size: 40px;
+	width: fit-content;
+	margin: 0 auto;
+}
+
+.features .container .box h2::after {
+	content: "";
+	position: absolute;
+	bottom: -20px;
+	left: 15px;
+	width: calc(100% - 30px);
+	height: 5px;
+}
+
+.features .container .box p {
+	line-height: 2;
+	font-size: 20px;
+	margin: 30px 0;
+	padding: 25px;
+	color: #777;
+}
+
+.features .container .box a {
+	display: block;
+	border: 3px solid transparent;
+	width: fit-content;
+	margin: 0 auto 30px;
+	font-weight: bold;
+	font-size: 22px;
+	padding: 10px 30px;
+	border-radius: 6px;
+	transition-property: width;
+	transition-duration: var(--transition-duration);
+	transition: width var(--transition-duration);
+	background-size: 200% 100%;
+	background-position: right bottom;
+	transition-property: background-position, background-color;
+	transition-duration: var(--transition-duration);
+	transition: background-position var(--transition-duration), background-color var(--transition-duration);
+}
+
+.features .container .box.quality a {
+	color: #f44036;
+	border-color: #f44036;
+	background-image: linear-gradient(to right, #f44036 50%, white 50%);
+}
+
+.features .container .box.time a {
+	color: #009688;
+	border-color: #009688;
+	background-image: linear-gradient(to right, #009688 50%, white 50%);
+}
+.features .container .box.passion a {
+	color: #03a9f4;
+	border-color: #03a9f4;
+	background-image: linear-gradient(to right, #03a9f4 50%, white 50%);
+}
+
+.features .container .box:hover a {
+	background-position: left bottom;
+	color: white;
+}
+/* End features section */
 
 /* Start Keyframes */
 @keyframes up-and-down {
