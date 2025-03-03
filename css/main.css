@@ -1506,8 +1506,94 @@ ul {
 	color: white;
 	background-color: var(--main-color);
 }
-
 /* End pricing plans section */
+
+/* Start top videos section */
+.videos {
+	padding: var(--section-padding) 0;
+}
+
+.videos .container .holder {
+	background-color: var(--section-background);
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	flex-flow: row nowrap;
+	justify-content: flex-start;
+	align-items: stretch;
+	align-content: stretch;
+	border: 1px solid #ddd;
+}
+
+@media (max-width: 991px) {
+	.videos .container .holder {
+		flex-direction: column;
+		flex-flow: column nowrap;
+	}
+}
+
+.videos .container .holder .list {
+	min-width: 300px;
+	background-color: white;
+}
+
+.videos .container .holder .list .name {
+	background-color: #f4f4f4;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	align-items: stretch;
+	align-content: stretch;
+	padding: 20px;
+	font-weight: bold;
+	color: var(--main-color);
+}
+
+.videos .container .holder .list ul li {
+	padding: 20px;
+	border: 1px solid var(--section-background);
+	cursor: pointer;
+	transition-property: color, background-color;
+	transition-duration: var(--transition-duration);
+	transition: color var(--transition-duration), background-color var(--transition-duration);
+}
+
+.videos .container .holder .list ul li:hover {
+	background-color: #fafafa;
+	color: var(--main-color);
+}
+
+.videos .container .holder .list ul li span {
+	display: block;
+	margin-top: 10px;
+	color: #777;
+}
+
+.videos .container .holder .preview {
+	background-color: #e2e2e2;
+	padding: 10px;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	flex-flow: column nowrap;
+	justify-content: space-between;
+	align-items: stretch;
+	align-content: stretch;
+}
+
+.videos .container .holder .preview img {
+	max-width: 100%;
+}
+
+.videos .container .holder .preview .info {
+	padding: 20px;
+	background-color: white;
+	margin-top: 10px;
+}
+
+/* End top videos section */
 
 /* Start Keyframes */
 @keyframes up-and-down {
