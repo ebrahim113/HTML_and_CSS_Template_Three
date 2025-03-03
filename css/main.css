@@ -980,6 +980,82 @@ ul {
 
 /* End services section */
 
+/* Start our skills section */
+.our-skills {
+	padding: var(--section-padding) 0;
+}
+
+.our-skills .container {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	flex-flow: row nowrap;
+	justify-content: flex-start;
+	align-items: center;
+	align-content: stretch;
+}
+
+@media (max-width: 767px) {
+	.our-skills .container img {
+		display: none;
+	}
+}
+
+.our-skills .container .skills {
+	flex-grow: 1;
+	flex-shrink: 1;
+	flex-basis: 0%;
+	flex: 1 1 0%;
+}
+
+.our-skills .container .skills .skill h3 {
+	margin: 1em 0;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	align-items: center;
+	align-content: stretch;
+}
+
+.our-skills .container .skills .skill h3 span {
+	font-size: 12px;
+	color: var(--main-color);
+	border: 1px solid #ccc;
+	padding: 3px 5px;
+	border-radius: 4px;
+}
+
+.our-skills .container .skills .skill .prog {
+	height: 30px;
+	background-color: #eee;
+	position: relative;
+}
+
+.our-skills .container .skills .skill .prog span {
+	height: 100%;
+	background-color: var(--main-color);
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.our-skills .container .skills .skill:first-child .prog span,
+.our-skills .container .skills .skill:last-child .prog span {
+	width: 80%;
+}
+
+.our-skills .container .skills .skill:nth-child(2) .prog span {
+	width: 85%;
+}
+
+.our-skills .container .skills .skill:nth-child(3) .prog span {
+	width: 70%;
+}
+
+/* End our skills section */
+
 /* Start Keyframes */
 @keyframes up-and-down {
 	0%, 100% {
