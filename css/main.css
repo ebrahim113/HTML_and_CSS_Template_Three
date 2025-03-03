@@ -107,8 +107,26 @@ ul {
 	width: 100%;
 	height: 30px;
 	background-image: linear-gradient(135deg, white 25%, transparent 25%), 
-					  linear-gradient(225deg, white 25%, transparent 25%);
+	linear-gradient(225deg, white 25%, transparent 25%);
 	background-size: 30px 30px;
+}
+
+.dots {
+	background-image: url('../images/dots.png');
+	width: 186px;
+	height: 204px;
+	background-repeat: no-repeat;
+	position: absolute;
+}
+
+.dots.dots-up {
+	top: 200px;
+	right: 0;
+}
+
+.dots.dots-down {
+	bottom: 200px;
+	left: 0;
 }
 
 /* Container media queries */
@@ -1165,28 +1183,10 @@ ul {
 	position: relative;
 }
 
-.events .dots {
-	background-image: url('../images/dots.png');
-	width: 186px;
-	height: 204px;
-	background-repeat: no-repeat;
-	position: absolute;
-}
-
 @media (max-width: 767px) {
 	.events .dots {
 		background-image: none;
 	}
-}
-
-.events .dots.dots-up {
-	top: 200px;
-	right: 0;
-}
-
-.events .dots.dots-down {
-	bottom: 200px;
-	left: 0;
 }
 
 .events .container {
@@ -1359,6 +1359,155 @@ ul {
 	background-color: var(--main-color-alt)
 }
 /* End latest events section */
+
+/* Start pricing plans section */
+.pricing {
+	background-color: var(--section-background);
+	padding: var(--section-padding) 0;
+	position: relative;
+}
+
+.pricing .container {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+	gap: 30px;
+}
+
+.pricing .container .box::before {
+	top: 0;
+	left: 0;
+}
+
+.pricing .container .box {
+	background-color: white;
+	text-align: center;
+	position: relative;
+	box-shadow: 
+	0px 12px 20px 0px rgb(0 0 0 / 13%),
+	0px 2px 4px 0px rgb(0 0 0 / 12%);
+	z-index: 1;
+}
+
+.pricing .container .box::before,
+.pricing .container .box::after {
+	content: "";
+	background-color: #f6f6f6;
+	width: 0;
+	height: 50%;
+	position: absolute;
+	z-index: -1;
+	transition-property: width;
+	transition-duration: var(--transition-duration);
+	transition: width var(--transition-duration);
+}
+
+.pricing .container .box:hover::before,
+.pricing .container .box:hover:after {
+	width: 100%;
+}
+
+.pricing .container .box::after {
+	bottom: 0;
+	right: 0;
+}
+
+.pricing .container .box.popular {
+	position: relative;
+}
+
+.pricing .container .box.popular .label {
+	width: 40px;
+	writing-mode: vertical-rl;
+	color: white;
+	background-color: var(--main-color);
+	font-weight: bold;
+	padding: 10px 10px 35px;
+	font-size: 18px;
+	position: absolute;
+	top: 0;
+	right: 20px;
+}
+
+.pricing .container .box.popular .label::after {
+	content: "";
+	border: 20px solid white;
+	border-color: transparent transparent white;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+
+@media (min-width: 1200px) {
+	.pricing .container .box.popular {
+		top: -20px;
+	}
+}
+
+.pricing .container .box .title {
+	font-weight: bold;
+	margin: 30px 0;
+	font-size: 25px;
+	letter-spacing: -1px;
+}
+
+.pricing .container .box img {
+	width: 80px;
+	margin-bottom: 30px;
+}
+
+.pricing .container .box .price {
+	margin-bottom: 20px;
+}
+
+.pricing .container .box .price .amount {
+	font-size: 60px;
+	font-weight: bold;
+	margin-bottom: 5px;
+	display: block;
+	color: var(--main-color);
+}
+
+.pricing .container .box .price .time {
+	color: #777;
+}
+
+.pricing .container .box ul {
+	text-align: left;
+}
+
+.pricing .container .box ul li::before {
+	font-family: "Font Awesome 5 Free";
+	content: "\f00c";
+	margin-right: 10px;
+	font-weight: 900;
+	color: var(--main-color);
+}
+
+.pricing .container .box ul li {
+	padding: 20px;
+	border-top: 1px solid #eee;
+}
+
+.pricing .container .box a {
+	display: block;
+	width: fit-content;
+	border: 2px solid var(--main-color);
+	color: var(--main-color);
+	margin: 30px auto 40px;
+	padding: 15px 20px;
+	border-radius: 6px;
+	font-weight: bold;
+	transition-property: color, background-color;
+	transition-duration: var(--transition-duration);
+	transition: color var(--transition-duration), background-color var(--transition-duration);
+}
+
+.pricing .container .box a:hover {
+	color: white;
+	background-color: var(--main-color);
+}
+
+/* End pricing plans section */
 
 /* Start Keyframes */
 @keyframes up-and-down {
