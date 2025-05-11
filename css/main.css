@@ -1,6 +1,7 @@
 /* Start variables */
 :root {
     --main-color: #2196f3;
+    --main-color-alt: #1787e0;
     --transition-duration: .3s;
 }
 
@@ -78,7 +79,6 @@ li {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    /* align-items: center; */
     position: relative;
 }
 
@@ -152,11 +152,12 @@ li {
 .header .container .main-nav li .mega-menu {
     width: 100%;
     padding: 30px;
+    background-color: white;
     border-bottom: 3px solid var(--main-color);
     position: absolute;
     left: 0;
     top: calc(100% + 50px);
-    /* z-index: -1; */
+    z-index: -1;
     display: flex;
     gap: 40px;
     opacity: 0;
@@ -165,7 +166,7 @@ li {
 
 .header .container .main-nav>li:last-child:hover .mega-menu {
     opacity: 1;
-    /* z-index: 1; */
+    z-index: 1;
     top: calc(100% + 1px);
 }
 
@@ -235,3 +236,132 @@ li {
 }
 
 /* End header section */
+
+/* Start landing section */
+.landing::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: -40px;
+    left: 0;
+    z-index: -1;
+    background-color: #ececec;
+    transform: skewY(-6deg);
+    transform-origin: top left;
+}
+
+.landing {
+    position: relative;
+}
+
+.landing .container {
+    height: calc(100vh - 87px);
+    display: flex;
+    align-items: center;
+    padding-bottom: 120px;
+}
+
+.landing .container .text {
+    flex-grow: 1;
+}
+
+@media (max-width: 991px) {
+    .landing .container .text {
+        text-align: center;
+    }
+}
+
+.landing .container .text h1 {
+    font-size: 40px;
+    letter-spacing: -2px;
+}
+
+@media (max-width: 767px) {
+    .landing .container .text h1 {
+        font-size: 28px;
+    }
+}
+
+.landing .container .text p {
+    color: #666;
+    font-size: 23px;
+    line-height: 1.7;
+    margin: 5px 0 0;
+    max-width: 500px;
+}
+
+@media (max-width: 991px) {
+    .landing .container .text p {
+        margin: 10px auto;
+    }
+}
+
+@media (max-width: 767px) {
+    .landing .container .text p {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 991px) {
+    .landing .container .image {
+        display: none;
+    }
+}
+
+.landing .container .image img {
+    width: 600px;
+    position: relative;
+    animation: up-and-down 5s linear infinite;
+}
+
+.landing .container .go-down {
+    color: var(--main-color);
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: var(--transition-duration);
+}
+
+.landing .container .go-down:hover {
+    color: var(--main-color-alt);
+}
+
+.landing .container .go-down i {
+    animation: bouncing 1.5s infinite;
+}
+
+/* End landing section */
+
+/* Start animations */
+@keyframes up-and-down {
+
+    0%,
+    100% {
+        top: 0;
+    }
+
+    50% {
+        top: -50px;
+    }
+}
+
+@keyframes bouncing {
+
+    0%,
+    10%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40%,
+    60% {
+        transform: translateY(-15px);
+    }
+}
+
+/* End animations */
