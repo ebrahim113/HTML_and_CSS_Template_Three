@@ -6,6 +6,7 @@
     --main-padding: 100px;
     --section-background: #ececec;
     --paragraph-color: #777;
+    --main-gap: 40px;
 }
 
 /* End variables */
@@ -225,7 +226,7 @@ li {
     top: calc(100% + 50px);
     z-index: -1;
     display: flex;
-    gap: 40px;
+    gap: var(--main-gap);
     opacity: 0;
     transition: top var(--transition-duration), opacity var(--transition-duration);
 }
@@ -408,7 +409,7 @@ li {
 .articles .container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 40px;
+    gap: var(--main-gap);
 }
 
 .articles .container .article {
@@ -474,7 +475,7 @@ li {
 .gallery .container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 40px;
+    gap: var(--main-gap);
 }
 
 .gallery .container .photo {
@@ -524,19 +525,13 @@ li {
 .features .container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 40px;
+    gap: var(--main-gap);
 }
 
 .features .container .feature {
     text-align: center;
     border: 1px solid #ccc;
 }
-
-.features .container .feature.quality {}
-
-.features .container .feature.time {}
-
-.features .container .feature.passion {}
 
 .features .container .feature .image::before {
     content: "";
@@ -661,6 +656,61 @@ li {
 }
 
 /* End features section */
+
+/* Start testmonials section */
+.testmonials {
+    padding: var(--main-padding) 0;
+    background-color: var(--section-background);
+}
+
+.testmonials .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--main-gap);
+}
+
+.testmonials .container .test {
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0px 2px 4px 0px rgb(0, 0, 0, 7%);
+    border-radius: 6px;
+    position: relative;
+}
+
+.testmonials .container .test img {
+    width: 100px;
+    height: 100px;
+    border: 10px solid var(--section-background);
+    border-radius: 50%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translateY(-50%);
+}
+
+.testmonials .container .test h3 {
+    text-transform: capitalize;
+    margin-bottom: 10px;
+}
+
+.testmonials .container .test .title {
+    margin-bottom: 10px;
+    text-transform: capitalize;
+    color: var(--paragraph-color);
+}
+
+.testmonials .container .test .rate .filled {
+    color: #ffc107;
+}
+
+.testmonials .container .test p:last-of-type {
+    margin: 10px 0 0;
+    color: var(--paragraph-color);
+    line-height: 1.5;
+}
+
+
+/* End testmonials section */
 
 /* Start animations */
 @keyframes up-and-down {
