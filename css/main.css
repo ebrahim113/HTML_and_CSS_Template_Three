@@ -1478,6 +1478,95 @@ li {
 
 /* End top videos section */
 
+/* Start stats section */
+.stats::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgb(255, 255, 255, 95%);
+}
+
+.stats {
+    min-height: 300px;
+    padding: var(--main-padding) 0;
+    position: relative;
+    background-image: url('../images/stats.jpg');
+    background-size: cover;
+}
+
+.stats h2 {
+    width: fit-content;
+    margin: 0 auto 50px;
+    font-size: 40px;
+    font-weight: bold;
+    text-transform: capitalize;
+    position: relative;
+}
+
+.stats .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: calc(var(--main-gap) / 2);
+}
+
+.stats .container .stat::before,
+.stats .container .stat::after {
+    content: "";
+    background-color: var(--main-color);
+    width: 2px;
+    height: 0;
+    position: absolute;
+    transition: 1s;
+}
+
+.stats .container .stat::before {
+    top: 0;
+    right: 0;
+}
+
+.stats .container .stat {
+    background-color: white;
+    padding: 30px 15px;
+    text-align: center;
+    opacity: .8;
+    position: relative;
+    transition: var(--transition-duration);
+}
+
+.stats .container .stat:hover {
+    opacity: 1;
+}
+
+.stats .container .stat:hover::before,
+.stats .container .stat:hover::after {
+    height: 100%;
+}
+
+.stats .container .stat::after {
+    left: 0;
+    bottom: 0;
+}
+
+.stats .container .stat .number {
+    display: block;
+    margin: 10px 0;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.stats .container .stat .text {
+    color: var(--main-color);
+    font-style: italic;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+/* End stats section */
+
 /* Start animations */
 @keyframes up-and-down {
 
