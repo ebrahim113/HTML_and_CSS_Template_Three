@@ -1262,6 +1262,149 @@ li {
 
 /* End events section */
 
+/* Start pricing plands section */
+.plans {
+    padding: var(--main-padding) 0;
+    position: relative;
+    background-color: var(--section-background);
+}
+
+.plans .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--main-gap);
+}
+
+.plans .container .plan::before,
+.plans .container .plan::after {
+    content: "";
+    width: 0;
+    height: 50%;
+    position: absolute;
+    z-index: -1;
+    background-color: #f6f6f6;
+    transition: var(--transition-duration);
+}
+
+.plans .container .plan:hover::before,
+.plans .container .plan:hover::after {
+    width: 100%;
+}
+
+.plans .container .plan::before {
+    top: 0;
+    left: 0;
+}
+
+.plans .container .plan {
+    background: white;
+    text-align: center;
+    box-shadow: 0 12px 20px 0 rgb(0, 0, 0, 13%), 0 2px 4px 0 rgb(0, 0, 0, 12%);
+    transition: var(--transition-duration);
+    position: relative;
+    z-index: 1;
+}
+
+.plans .container .plan::after {
+    bottom: 0;
+    right: 0;
+}
+
+.plans .container .plan.popular .label::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border: 20px solid white;
+    border-color: transparent transparent white;
+}
+
+@media (min-width: 1200px) {
+    .plans .container .plan.popular {
+        top: -20px;
+    }
+}
+
+.plans .container .plan.popular .label {
+    width: 40px;
+    padding: 10px 10px 35px;
+    position: absolute;
+    right: 20px;
+    background-color: var(--main-color);
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    writing-mode: vertical-rl;
+}
+
+.plans .container .plan .title {
+    margin: 30px 0;
+    font-size: 25px;
+    font-weight: bold;
+    letter-spacing: -1px;
+    text-transform: capitalize;
+}
+
+.plans .container .plan img {
+    width: 80px;
+    margin-bottom: 30px;
+}
+
+.plans .container .plan .price {
+    margin-bottom: 20px;
+}
+
+.plans .container .plan .price .amount {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 60px;
+    font-weight: bold;
+    color: var(--main-color);
+}
+
+.plans .container .plan .price .time {
+    color: var(--paragraph-color);
+    text-transform: capitalize;
+}
+
+.plans .container .plan ul {
+    text-align: left;
+}
+
+.plans .container .plan ul li::before {
+    font-family: "Font Awesome 5 Free";
+    content: "\f00c";
+    margin-right: 10px;
+    font-weight: 900;
+    color: var(--main-color);
+}
+
+.plans .container .plan ul li {
+    padding: 20px;
+    border-top: 1px solid #eee;
+    text-transform: capitalize;
+}
+
+.plans .container .plan a {
+    display: block;
+    width: fit-content;
+    padding: 15px 20px;
+    margin: 30px auto 40px;
+    border: 2px solid var(--main-color);
+    border-radius: 6px;
+    color: var(--main-color);
+    font-weight: bold;
+    transition: var(--transition-duration);
+}
+
+.plans .container .plan a:hover {
+    color: white;
+    background-color: var(--main-color-alt);
+    border-color: var(--main-color-alt);
+}
+
+/* End pricing plands section */
+
 /* Start animations */
 @keyframes up-and-down {
 
