@@ -1567,6 +1567,123 @@ li {
 
 /* End stats section */
 
+/* Start request a discount section */
+.discount {
+    min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.discount .image::before {
+    content: "";
+    background-color: rgb(23, 135, 224, 97%);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.discount .image {
+    background-image: url('../images/discount-background1.jpg');
+    background-size: cover;
+    color: white;
+    flex-basis: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    animation: change-background 10s linear infinite;
+}
+
+@media (max-width: 991px) {
+    .discount .image {
+        flex-basis: 100%;
+    }
+}
+
+.discount .form {
+    padding-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-basis: 50%;
+}
+
+@media (max-width: 991px) {
+    .discount .form {
+        flex-basis: 100%;
+    }
+}
+
+.discount .form .content form input,
+.discount .form .content form textarea {
+    background-color: #f9f9f9;
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 25px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    caret-color: var(--main-color);
+    outline: none;
+}
+
+.discount .form .content form input::placeholder,
+.discount .form .content form textarea::placeholder {
+    text-transform: capitalize;
+}
+
+.discount .form .content form textarea {
+    height: 200px;
+    resize: none;
+}
+
+.discount .form .content form input[type="submit"] {
+    display: block;
+    background-color: var(--main-color);
+    width: 100%;
+    padding: 15px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition-duration);
+    text-transform: capitalize;
+}
+
+.discount .form .content form input[type="submit"]:hover {
+    background-color: var(--main-color-alt);
+}
+
+.discount .content {
+    padding: 0 20px;
+    text-align: center;
+}
+
+.discount .content h2 {
+    font-size: 40px;
+    letter-spacing: -2px;
+    text-transform: capitalize;
+    margin: 1em 0;
+}
+
+.discount .content p {
+    max-width: 500px;
+    line-height: var(--main-line-height);
+    font-size: 18px;
+}
+
+.discount .content img {
+    width: 300px;
+    max-width: 100%;
+}
+
+/* End request a discount section */
+
 /* Start animations */
 @keyframes up-and-down {
 
@@ -1644,6 +1761,18 @@ li {
         opacity: 0;
         width: 200%;
         height: 200%;
+    }
+}
+
+@keyframes change-background {
+
+    0%,
+    100% {
+        background-image: url('../images/discount-background1.jpg');
+    }
+
+    50% {
+        background-image: url('../images/discount-background2.jpg');
     }
 }
 
