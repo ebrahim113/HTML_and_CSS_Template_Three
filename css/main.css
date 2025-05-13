@@ -709,8 +709,114 @@ li {
     line-height: 1.5;
 }
 
-
 /* End testmonials section */
+
+/* Start team members section */
+.team-members {
+    padding: var(--main-padding) 0;
+}
+
+.team-members .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: calc(var(--main-gap) - 10px);
+}
+
+.team-members .container .member::before,
+.team-members .container .member::after {
+    content: "";
+    height: 100%;
+    background-color: #f3f3f3;
+    border-radius: 10px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transition: var(--transition-duration);
+}
+
+.team-members .container .member::before {
+    width: calc(100% - 60px);
+    z-index: -2;
+}
+
+.team-members .container .member {
+    position: relative;
+}
+
+.team-members .container .member::after {
+    z-index: -1;
+    background-color: #e4e4e4;
+    width: 0;
+}
+
+.team-members .container .member:hover::after {
+    width: calc(100% - 60px);
+}
+
+.team-members .container .member .data {
+    display: flex;
+    align-items: center;
+    padding-top: 60px;
+}
+
+.team-members .container .member .data img {
+    width: calc(100% - 60px);
+    transition: var(--transition-duration);
+    border-radius: 10px;
+}
+
+.team-members .container .member:hover .data img {
+    filter: grayscale(100%);
+}
+
+.team-members .container .member .data .social {
+    width: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: calc(var(--main-gap) / 2);
+}
+
+.team-members .container .member .data .social a {
+    width: 60px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.team-members .container .member .data .social a i {
+    color: var(--paragraph-color);
+    transition: var(--transition-duration);
+}
+
+.team-members .container .member .data .social a:hover i {
+    color: var(--main-color);
+}
+
+.team-members .container .member .info {
+    padding-left: 80px;
+}
+
+.team-members .container .member .info h3 {
+    margin-top: 1em;
+    font-size: 22px;
+    text-transform: capitalize;
+    color: var(--main-color);
+    transform: var(--transition-duration);
+}
+
+.team-members .container .member:hover .info h3 {
+    color: var(--paragraph-color);
+}
+
+.team-members .container .member .info p {
+    text-transform: capitalize;
+    margin-top: 30px;
+    margin-bottom: 25px;
+}
+
+/* End team members section */
 
 /* Start animations */
 @keyframes up-and-down {
