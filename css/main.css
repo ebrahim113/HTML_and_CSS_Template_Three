@@ -886,13 +886,6 @@ li {
     transform: skewX(-30deg);
 }
 
-@media (max-width: 767px) {
-    .services .container .service .info::after {
-        height: calc(100% + .2px);
-        transform: skewX(-31deg);
-    }
-}
-
 .services .container .service .info {
     padding: 15px;
     text-align: right;
@@ -924,6 +917,79 @@ li {
 }
 
 /* End services section */
+
+/* Start our skills section */
+.our-skills {
+    padding: var(--main-padding) 0;
+}
+
+.our-skills .container {
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: 991px) {
+    .our-skills .container img {
+        display: none;
+    }
+}
+
+.our-skills .container .skills {
+    flex: 1;
+}
+
+.our-skills .container .skills .skill h3 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1em 0;
+    text-transform: capitalize;
+}
+
+.our-skills .container .skills .skill:nth-child(1) h3,
+.our-skills .container .skills .skill:nth-child(2) h3 {
+    text-transform: uppercase;
+}
+
+.our-skills .container .skills .skill h3 span {
+    padding: 3px 5px;
+    border-radius: 4px;
+    color: var(--main-color);
+    font-size: 12px;
+    border: 1px solid #ccc;
+}
+
+.our-skills .container .skills .skill .progress {
+    height: 30px;
+    background-color: #eee;
+    position: relative;
+}
+
+.our-skills .container .skills .skill .progress span {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--main-color);
+}
+
+.our-skills .container .skills .skill:nth-child(1) .progress span {
+    width: 80%;
+}
+
+.our-skills .container .skills .skill:nth-child(2) .progress span {
+    width: 85%;
+}
+
+.our-skills .container .skills .skill:nth-child(3) .progress span {
+    width: 70%;
+}
+
+.our-skills .container .skills .skill:nth-child(4) .progress span {
+    width: 80%;
+}
+
+/* End our skills section */
 
 /* Start animations */
 @keyframes up-and-down {
