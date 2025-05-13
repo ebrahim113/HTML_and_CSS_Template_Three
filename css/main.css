@@ -583,6 +583,7 @@ li {
     margin: auto;
     position: relative;
     font-size: 40px;
+    text-transform: capitalize;
 }
 
 .features .container .feature h2::after {
@@ -817,6 +818,112 @@ li {
 }
 
 /* End team members section */
+
+/* Start services section */
+.services {
+    padding: var(--main-padding) 0;
+    background-color: var(--section-background);
+    position: relative;
+}
+
+.services .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--main-gap);
+}
+
+.services .container .service::before {
+    content: "";
+    width: 0;
+    height: 3px;
+    position: absolute;
+    top: -3px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--main-color);
+    transition: var(--transition-duration);
+}
+
+.services .container .service:hover:before {
+    width: 100%;
+}
+
+.services .container .service {
+    counter-increment: service;
+    background-color: white;
+    text-transform: capitalize;
+    box-shadow: 0 12px 20px 0 rgb(0, 0, 0, 13%), 0 2px 4px 0 rgb(0, 0, 0, 12%);
+    transition: var(--transition-duration);
+    position: relative;
+}
+
+.services .container .service:hover {
+    transform: translateY(-10px);
+}
+
+.services .container .service i {
+    display: block;
+    margin: 30px auto 20px;
+    text-align: center;
+    color: #d5d5d5;
+}
+
+.services .container .service h3 {
+    margin: 20px 0 40px;
+    font-size: 25px;
+    text-align: center;
+    color: var(--main-color);
+}
+
+.services .container .service .info::after {
+    content: "";
+    width: 50px;
+    height: calc(100% + .4px);
+    background-color: #d5d5d5;
+    position: absolute;
+    top: 0;
+    left: 80px;
+    transform: skewX(-30deg);
+}
+
+@media (max-width: 767px) {
+    .services .container .service .info::after {
+        height: calc(100% + .2px);
+        transform: skewX(-31deg);
+    }
+}
+
+.services .container .service .info {
+    padding: 15px;
+    text-align: right;
+    background-color: #f9f9f9;
+    position: relative;
+}
+
+.services .container .service .info::before {
+    content: "0" counter(service);
+    width: 80px;
+    height: 100%;
+    padding-right: 15px;
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+    background-color: var(--main-color);
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.services .container .service .info a {
+    display: inline-block;
+    color: var(--main-color);
+    text-transform: capitalize;
+}
+
+/* End services section */
 
 /* Start animations */
 @keyframes up-and-down {
