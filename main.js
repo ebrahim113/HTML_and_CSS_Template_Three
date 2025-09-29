@@ -6,7 +6,7 @@ const innerLinks = document.querySelectorAll('.inner-menu li');
 
 const toggleClasses = (links) => {
 	links.forEach(link => 
-		link.addEventListener('click', function() {
+		link.addEventListener('click', function(e) {
 			links.forEach(link => link.classList.remove('active'));
 			this.classList.add('active');
 	}));
@@ -23,10 +23,12 @@ outerLinks[outerLinks.length - 1].addEventListener('click', (e) => {
 	if (isOpened) {
 		megaMenu.style.top = "150%";
 		megaMenu.style.opacity = "0";
+		megaMenu.style.zIndex = "-1";
 		isOpened = !isOpened;
 	} else {
 		megaMenu.style.top = "100%";
 		megaMenu.style.opacity = "1";
+		megaMenu.style.zIndex = "1";
 		isOpened = !isOpened;
 	}
 });
@@ -35,8 +37,8 @@ window.addEventListener('click', _ => {
 	if (isOpened) {
 		megaMenu.style.top = "150%";
 		megaMenu.style.opacity = "0";
+		megaMenu.style.zIndex = "-1";
 		isOpened = !isOpened;
 		outerLinks[outerLinks.length - 1].classList.remove('active');
 	}
 });
-
