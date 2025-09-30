@@ -2,7 +2,8 @@
 :root {
 	--main-color: #2196f3;
 	--main-duration: .3s;
-	--paragpraph-line-height: 1.6;
+	--paragraph-color: #777;
+	--paragpraph-line-height: 1.8;
 	--section-background-color: #ececec;
 	--section-padding: 100px;
 	--main-gap: 40px;
@@ -105,10 +106,6 @@ a {
 
 .main-title:hover::after {
 	animation: right-move 0.5s linear forwards;
-}
-
-.spikes {
-	position: relative;
 }
 
 .spikes::after {
@@ -415,7 +412,7 @@ header .container .main-menu li .mega-menu .inner-menu li a i {
 }
 
 .articles .container .article .text p {
-	color: #777;
+	color: var(--paragraph-color);
 	line-height: var(--paragpraph-line-height);
 }
 
@@ -492,6 +489,143 @@ header .container .main-menu li .mega-menu .inner-menu li a i {
 }
 
 /* End gallery */
+
+/* Start features */
+.features {
+	padding: var(--section-padding) 0;
+}
+
+.features .container {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	gap: var(--main-gap);
+}
+
+.features .container .feature {
+	text-align: center;
+	border: 1px solid #ccc;
+}
+
+.features .container .feature .image::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.features .container .feature.quality .image::before {
+	background-color: rgb(244 64 54 / 60%);
+}
+
+.features .container .feature.time .image::before {
+	background-color: rgb(0 150 136 / 60%);
+}
+
+.features .container .feature.passion .image::before {
+	background-color: rgb(3 169 244 / 60%);
+}
+
+.features .container .feature .image::after {
+	content: "";
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	border-width: 0 0 170px 500px;
+	border-style: solid;
+	border-color: transparent transparent #fff transparent;
+	transition: var(--main-duration);
+}
+
+.features .container .feature:hover .image::after {
+	border-width: 170px 500px 170px 0;
+}
+
+.features .container .feature .image {
+	position: relative;
+	overflow: hidden;
+}
+
+.features .container .feature .image img {
+	max-width: 100%;
+}
+
+.features .container .feature h2 {
+	font-size: 40px;
+	width: fit-content;
+	margin: auto;
+	position: relative;
+}
+
+.features .container .feature h2::after {
+	content: "";
+	width: calc(100% - 30px);
+	height: 5px;
+	position: absolute;
+	bottom: -20px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.features .container .feature.quality h2::after {
+	background-color: #f44036;
+}
+
+.features .container .feature.time h2::after {
+	background-color: #009688;
+}
+
+.features .container .feature.passion h2::after {
+	background-color: #03a9f4;
+}
+
+.features .container .feature p {
+	color: var(--paragraph-color);
+	font-size: 20px;
+	line-height: var(--paragpraph-line-height);
+	padding: 25px;
+	margin: 30px 0;
+}
+
+.features .container .feature a {
+	background-size: 200% 100%;
+	background-position: right bottom;
+	font-size: 22px;
+	font-weight: bold;
+	display: block;
+	width: fit-content;
+	padding: 10px 30px;
+	margin: 0 auto 30px;
+	border: 3px solid transparent;
+	border-radius: 6px;
+	transition: var(--main-duration);
+}
+
+.features .container .feature.quality a {
+	color: #f44036;
+	border-color: #f44036;
+	background-image: linear-gradient(to right, #f44036 50%, #fff 50%);
+
+}
+
+.features .container .feature.time a {
+	color: #009688;
+	border-color: #009688;
+	background-image: linear-gradient(to right, #009688 50%, #fff 50%);
+}
+
+.features .container .feature.passion a {
+	color: #03a9f4;
+	border-color: #03a9f4;
+	background-image: linear-gradient(to right, #03a9f4 50%, #fff 50%);
+}
+
+.features .container .feature:hover a {
+	background-position: left bottom;
+	color: #fff;
+}
+/* End features */
 
 /* Start animations */
 @keyframes up-and-down {
