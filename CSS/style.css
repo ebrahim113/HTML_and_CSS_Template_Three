@@ -3,7 +3,7 @@
 	--main-color: #2196f3;
 	--main-duration: .3s;
 	--paragraph-color: #777;
-	--paragpraph-line-height: 1.8;
+	--paragpraph-line-height: 1.6;
 	--section-background-color: #ececec;
 	--section-padding: 100px;
 	--main-gap: 40px;
@@ -626,6 +626,59 @@ header .container .main-menu li .mega-menu .inner-menu li a i {
 	color: #fff;
 }
 /* End features */
+
+/* Start testimonials */
+.testimonials {
+	background-color: var(--section-background-color);
+	padding: var(--section-padding) 0;
+}
+
+.testimonials .container {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	gap: var(--main-gap);
+}
+
+.testimonials .container .test {
+	background-color: #fff;
+	position: relative;
+	padding: 20px;
+	border-radius: 6px;
+	box-shadow: 0 2px 4px rgb(0 0 0 / 7%);
+}
+
+.testimonials .container .test img {
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	right: -10px;
+	top: 0;
+	transform: translateY(-50%);
+	border: 10px solid var(--section-background-color);
+	border-radius: 50%;
+}
+
+.testimonials .container .test h3 {
+	margin: 0 0 10px;
+}
+
+.testimonials .container .test span {
+	color: var(--paragraph-color);
+	display: block;
+	margin-bottom: 10px;
+}
+
+.testimonials .container .test .rate .filled {
+	color: #ffc107;
+}
+
+.testimonials .container .test p {
+	color: var(--paragraph-color);
+	line-height: var(--paragpraph-line-height);
+	margin: 10px 0 0;
+}
+
+/* End testimonials */
 
 /* Start animations */
 @keyframes up-and-down {
