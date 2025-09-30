@@ -6,7 +6,7 @@
 	--paragpraph-line-height: 1.6;
 	--section-background-color: #ececec;
 	--section-padding: 100px;
-	--main-gap: 40px;
+	--main-gap: 35px;
 }
 /* End variables */
 
@@ -677,8 +677,110 @@ header .container .main-menu li .mega-menu .inner-menu li a i {
 	line-height: var(--paragpraph-line-height);
 	margin: 10px 0 0;
 }
-
 /* End testimonials */
+
+/* Start members */
+.members {
+	padding: var(--section-padding) 0;
+}
+
+.members .container {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	gap: var(--main-gap);
+}
+
+.members .container .member::before,
+.members .container .member::after {
+	content: "";
+	background-color: #f3f3f3;
+	position: absolute;
+	right: 0;
+	top: 0;
+	height: 100%;
+	border-radius: 10px;
+	transition: var(--main-duration);
+}
+
+.members .container .member::before {
+	width: calc(100% - 60px);
+	z-index: -1;
+}
+
+.members .container .member {
+	position: relative;
+}
+
+.members .container .member::after {
+	z-index: -1;
+	background-color: #e4e4e4;
+	width: 0;
+}
+
+.members .container .member:hover::after {
+	width: calc(100% - 60px);
+}
+
+.members .container .member .data {
+	display: flex;
+	align-items: center;
+	padding-top: 60px;
+}
+
+.members .container .member .data img {
+	width: calc(100% - 60px);
+	transition: var(--main-duration);
+	border-radius: 10px;
+}
+
+.members .container .member:hover .data img {
+	filter: grayscale(100%);
+}
+
+.members .container .member .data .social {
+	width: 60px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 20px;
+}
+
+.members .container .member .data .social a {
+	width: 60px;
+	height: 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.members .container .member .data .social a i {
+	color: #777;
+	transition: var(--main-duration);
+}
+
+.members .container .member .data .social a:hover i {
+	color: var(--main-color);
+}
+
+.members .container .member .info {
+	padding-left: 80px;
+}
+
+.members .container .member .info h3 {
+	font-size: 22px;
+	color: var(--main-color);
+	margin-bottom: 0;
+	transition: var(--main-duration);
+}
+
+.members .container .member:hover .info h3 {
+	color: #777;
+}
+
+.members .container .member .info p {
+	margin: 10px 0 25px;
+}
+/* End members */
 
 /* Start animations */
 @keyframes up-and-down {
