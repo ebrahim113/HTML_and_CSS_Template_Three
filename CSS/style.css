@@ -874,6 +874,56 @@ header .container .main-menu li .mega-menu .inner-menu li a i {
 }
 /* End services */
 
+/* Start skills */
+.skills {
+	padding: var(--section-padding) 0;
+}
+
+.skills .container {
+	display: flex;
+	align-items: center;
+}
+
+@media (max-width: 991px) {
+	.skills .container img {
+		display: none;
+	}
+}
+
+.skills .container .skills-container {
+	flex: 1;
+}
+
+.skills .container .skills-container .skill .progress::before {
+	content: attr(data-progress);
+	color: var(--main-color);
+	font-size: 12px;
+	font-weight: bold;
+	padding: 3px 5px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	transform: translateY(calc(-100% - 1em));
+}
+
+.skills .container .skills-container .skill .progress {
+	background-color: #eee;
+	position: relative;
+	height: 30px;
+}
+
+.skills .container .skills-container .skill .progress div {
+	background-color: var(--main-color);
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+}
+
+/* End skills */
+
 /* Start animations */
 @keyframes up-and-down {
 	0%, 100% {
