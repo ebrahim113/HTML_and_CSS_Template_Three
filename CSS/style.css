@@ -117,6 +117,25 @@ a {
 	height: 30px;
 	position: absolute;
 	right: 0;
+	z-index: 1;
+}
+
+.dots {
+	background-image: url('../images/dots.png');
+	background-repeat: no-repeat;
+	width: 204px;
+	height: 186px;
+	position: absolute;
+}
+
+.dots.dots-up {
+	top: 200px;
+	right: 0;
+}
+
+.dots.dots-down {
+	bottom: 200px;
+	left: 0;
 }
 /* End global rules */
 
@@ -1163,6 +1182,147 @@ header .container .main-menu li .mega-menu .inner-menu li a i {
 	}
 }
 /* End events */
+
+/* Start plans */
+.plans {
+	position: relative;
+	background-color: var(--section-background-color);
+	padding: var(--section-padding) 0;
+}
+
+.plans .container {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	gap: var(--main-gap);
+}
+
+.plans .container .plan::before {
+	top: 0;
+	left: 0;
+}
+
+.plans .container .plan:hover::before {
+	width: 100%;
+}
+
+.plans .container .plan {
+	background-color: #fff;
+	text-align: center;
+	box-shadow: 0 12px 20px 0 rgb(0 0 0 / 13%), 0 2px 4px 0 rgb(0 0 0 / 12%);
+	position: relative;
+	z-index: 1;
+}
+
+.plans .container .plan .label::before {
+	content: "";
+	position: absolute;
+	bottom: -1px;
+	right: 0;
+	border-width: 20px;
+	border-style: solid;
+	border-color: transparent transparent #fff;
+}
+
+@media (min-width: 1200px) {
+	.plans .container .plan:nth-of-type(2) {
+		top: -20px;
+	}
+}
+
+.plans .container .plan .label {
+	background-color: var(--main-color);
+	color: #fff;
+	font-size: 18px;
+	font-weight: bold;
+	writing-mode: vertical-rl;
+	width: 40px;
+	padding: 10px 10px 35px;
+	position: absolute;
+	right: 20px;
+}
+
+.plans .container .plan::after {
+	bottom: 0;
+	right: 0;
+}
+
+.plans .container .plan:hover::after {
+	width: 100%;
+}
+
+.plans .container .plan::before,
+.plans .container .plan::after {
+	content: "";
+	background-color: #f6f6f6;
+	width: 0;
+	height: 50%;
+	position: absolute;
+	z-index: -1;
+	transition: var(--main-duration);
+}
+
+.plans .container .plan .title {
+	font-size: 25px;
+	font-weight: bold;
+	letter-spacing: -1px;
+	margin: 30px auto;
+}
+
+.plans .container .plan img {
+	width: 80px;
+	margin-bottom: 30px;
+}
+
+.plans .container .plan .price {
+	margin-bottom: 20px;
+}
+
+.plans .container .plan .price span:first-of-type {
+	color: var(--main-color);
+	font-size: 60px;
+	font-weight: bold;
+	margin-bottom: 5px;
+	display: block;
+}
+
+.plans .container .plan .price span:last-of-type {
+	color: #777;
+}
+
+.plans .container .plan ul {
+	text-align: left;
+}
+
+.plans .container .plan ul li::before {
+	font-family: "Font Awesome 5 Free";
+	content: "\f00c";
+	font-weight: 900;
+	color: var(--main-color);
+	margin-right: 10px;
+}
+
+.plans .container .plan ul li {
+	padding: 20px;
+	border-top: 1px solid #eee;
+}
+
+.plans .container .plan a {
+	color: var(--main-color);
+	font-weight: bold;
+	display: block;
+	width: fit-content;
+	padding: 15px 20px;
+	margin: 30px auto 40px;
+	border: 2px solid var(--main-color);
+	border-radius: 6px;
+	transition: var(--main-duration);
+}
+
+.plans .container .plan a:hover {
+	background-color: var(--main-color);
+	color: #fff;
+}
+/* End plans */
 
 /* Start animations */
 @keyframes up-and-down {
