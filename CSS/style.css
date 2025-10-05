@@ -143,6 +143,9 @@ a {
 header {
 	background-color: #fff;
 	box-shadow: 0 0 10px #ddd;
+	position: sticky;
+	top: 0;
+	z-index: 2;
 }
 
 header .container {
@@ -180,7 +183,7 @@ header .container .main-menu {
 	}
 }
 
-header .container .main-menu>li>a::before {
+header .container .main-menu>li>a::before, .other::before {
 	content: "";
 	background-color: var(--main-color);
 	width: 0;
@@ -195,11 +198,11 @@ header .container .main-menu>li>.active::before {
 	width: 100%;
 }
 
-header .container .main-menu>li>a:hover::before {
+header .container .main-menu>li>a:hover::before, .other:hover::before {
 	width: 100%;
 }
 
-header .container .main-menu>li>a {
+header .container .main-menu>li>a, .other {
 	color: #000;
 	font-size: 18px;
 	padding: 0 30px;
@@ -210,7 +213,7 @@ header .container .main-menu>li>a {
 }
 
 @media (max-width: 767px) {
-	header .container .main-menu>li>a {
+	header .container .main-menu>li>a, .other {
 		font-size: 14px;
 		height: 40px;
 		padding: 10px;
@@ -222,7 +225,7 @@ header .container .main-menu>li>.active {
 	background-color: #fafafa;
 }
 
-header .container .main-menu>li>a:hover {
+header .container .main-menu>li>a:hover, .other:hover {
 	color: var(--main-color);
 	background-color: #fafafa;
 }
@@ -232,14 +235,18 @@ header .container .main-menu li .mega-menu {
 	column-gap: 40px;
 	position: absolute;
 	left: 0;
-	top: calc(100% + 50px);
-	z-index: -1;
-	display: flex;
+	top: 100%;
+	z-index: 1;
+	display: none;
 	width: 100%;
 	padding: 30px;
-	opacity: 0;
 	border-bottom: 3px solid var(--main-color);
 	transition: opacity var(--main-duration), top var(--main-duration);
+}
+
+header .container .main-menu .other+.mega-menu.opened {
+	top: 100%;
+	display: flex;
 }
 
 @media (max-width: 991px) {
