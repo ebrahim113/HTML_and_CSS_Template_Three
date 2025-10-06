@@ -10,16 +10,26 @@ const progressDivs = document.querySelectorAll('.progress div');
 
 const statsSpans = document.querySelectorAll('.stat span:first-of-type');
 
+const countDownDate = new Date("Dec 31, 2025 23:59:59").getTime();
+
+const daysSpan = document.querySelector('.days');
+
+const hoursSpan = document.querySelector('.hours');
+
+const minutesSpan = document.querySelector('.minutes');
+
+const secondsSpan = document.querySelector('.seconds');
+
 let started = false;
 
 const count = el => {
-	let goal = el.dataset.goal;
-	let counter = setInterval(_ => {
+	const goal = el.dataset.goal;
+	const counter = setInterval(_ => {
 		el.textContent++;
 		if (el.textContent == goal) { 
-			clearInterval(counter) 
+			clearInterval(counter);
 			if (el.className === 'money') el.textContent = el.textContent + "K";
-		};
+		}
 	}, 2000 / goal);
 };
 
@@ -85,3 +95,29 @@ otherLinks.addEventListener('click', (e) => {
 	otherLinks.classList.add('active');
 	megaMenu.classList.toggle('opened');
 });
+
+const countDown = _ => {
+	const dateNow = new Date().getTime();
+
+	const dateDiff = countDownDate - dateNow;
+	
+	const days = Math.floor(dateDiff / (1000 * 60 * 60 * 24));
+
+	daysSpan.textContent = days < 10 ? `0${days}` : days;
+	
+	const hours = Math.floor(dateDiff % (1000 * 60 * 60 * 24) / (1000 * 60 * 60));
+
+	hoursSpan.textContent = hours < 10 ? `0${hours}` : hours;
+
+	const minutes = Math.floor(dateDiff % (1000 * 60 * 60) / (1000 * 60));
+	
+	minutesSpan.textContent = minutes < 10 ? `0${minutes}` : minutes;
+	
+	const seconds = Math.floor(dateDiff % (1000 * 60) / 1000);
+	
+	secondsSpan.textContent = seconds < 10 ? `0${seconds}` : seconds;
+};
+
+countDown();
+
+const counter = setInterval(countDown, 1000);
