@@ -8,6 +8,21 @@ const links = [...document.querySelectorAll('.main-menu>li>a'), document.querySe
 
 const progressDivs = document.querySelectorAll('.progress div');
 
+const statsSpans = document.querySelectorAll('.stat span:first-of-type');
+
+let started = false;
+
+const count = el => {
+	let goal = el.dataset.goal;
+	let counter = setInterval(_ => {
+		el.textContent++;
+		if (el.textContent == goal) { 
+			clearInterval(counter) 
+			if (el.className === 'money') el.textContent = el.textContent + "K";
+		};
+	}, 2000 / goal);
+};
+
 const sections = {
 	articles: {},
 	gallery: {},
@@ -38,6 +53,12 @@ window.addEventListener('scroll', _ => {
 	const scrollYValue = scrollY + headerOffsetHeight;
 	
 	if (scrollYValue + 300 >= sections['our-skills'].offsetTop) progressDivs.forEach(div => div.style.width = div.parentElement.dataset.progress);
+	
+	if (!started)
+		if (scrollYValue >= sections.stats.offsetTop) {
+			statsSpans.forEach(span => count(span));
+			started = !started;
+		}
 
 	if (scrollYValue >= sections['articles'].offsetTop) {
 	sectionsNames.forEach(section => {
