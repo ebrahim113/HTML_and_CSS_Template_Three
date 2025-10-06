@@ -6,6 +6,8 @@ const megaMenu = document.querySelector('.mega-menu');
 
 const links = [...document.querySelectorAll('.main-menu>li>a'), document.querySelector('.other'), ...document.querySelectorAll('.inner-menu li')];
 
+const progressDivs = document.querySelectorAll('.progress div');
+
 const sections = {
 	articles: {},
 	gallery: {},
@@ -28,11 +30,14 @@ const updateOffsets = _ => {
 	sectionsNames.forEach(section => sections[section].offsetTop = document.querySelector(`#${section}`).offsetTop)
 };
 
-window.addEventListener('load', updateOffsets);
+updateOffsets();
+
 window.addEventListener('resize', updateOffsets);
 
 window.addEventListener('scroll', _ => {
 	const scrollYValue = scrollY + headerOffsetHeight;
+	
+	if (scrollYValue + 300 >= sections['our-skills'].offsetTop) progressDivs.forEach(div => div.style.width = div.parentElement.dataset.progress);
 
 	if (scrollYValue >= sections['articles'].offsetTop) {
 	sectionsNames.forEach(section => {

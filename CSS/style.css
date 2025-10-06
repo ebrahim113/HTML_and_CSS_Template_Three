@@ -947,6 +947,7 @@ header .container .main-menu li .mega-menu .inner-menu li a i {
 	top: 0;
 	left: 0;
 	height: 100%;
+	transition: var(--main-duration);
 }
 
 /* End skills */
